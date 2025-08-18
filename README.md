@@ -49,14 +49,14 @@ PyPDF2 (for PDF parsing)
 Resume-matcher/
 │
 ├── backend/
-│   ├── app.py
-│   ├── requirements.txt
-|   |-- uploads
-│   └── venv/         
+│ ├── app.py
+│ ├── requirements.txt
+│ ├── uploads/
+│ └── venv/
 │
 ├── frontend/
-│   ├── index.html
-│   └── style.css
+│ ├── index.html
+│ └── style.css
 │
 └── README.md
 '''
