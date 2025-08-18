@@ -1,0 +1,6 @@
+flask
+flask-cors
+scikit-learn
+pdfplumber
+python-docx
+

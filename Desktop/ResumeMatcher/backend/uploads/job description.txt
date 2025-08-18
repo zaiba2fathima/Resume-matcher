@@ -1,0 +1,36 @@
+Sample Job Description (Software Developer Intern)
+
+Job Title: Software Developer Intern
+Location: Remote / Bangalore
+Job Type: Internship (6 months)
+
+Responsibilities:
+
+Assist in developing and maintaining web applications.
+
+Work with the frontend team using HTML, CSS, JavaScript, React.
+
+Support backend development using Python and Flask/Django.
+
+Collaborate with the team to design, develop, test, and deploy software solutions.
+Debug issues and fix bugs in applications.
+
+Requirements:
+
+Strong knowledge of Python programming.
+
+Familiarity with HTML, CSS, JavaScript.
+
+Understanding of databases (SQL/NoSQL).
+
+Good problem-solving and debugging skills.
+
+Ability to work in a team and communicate effectively.
+
+Nice to Have:
+
+Experience with Flask or Django.
+
+Knowledge of machine learning/NLP.
+
+Previous project work (e.g., portfolio website, Netflix clone, to-do app).

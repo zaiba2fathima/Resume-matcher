@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Resume Matcher</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      min-height: 100vh;
+      background: #f4f6f9;
+    }
+    h2 {
+      color: #333;
+      text-align: center;
+      margin: 30px 0;
+      font-size: 28px;
+    }
+    form {
+      background: #fff;
+      padding: 20px 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      max-width: 500px;
+      width: 100%;
+    }
+    form label {
+      font-size: 16px;
+      display: block;
+      margin-bottom: 15px;
+      color: #444;
+    }
+    form input[type="file"] {
+      margin-top: 5px;
+    }
+    button {
+      background: #4CAF50;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      font-size: 16px;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #45a049;
+    }
+    .result-box {
+      margin-top: 25px;
+      padding: 15px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      background: #fff;
+      max-width: 600px;
+      width: 100%;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    }
+    .score {
+      font-size: 20px;
+      font-weight: bold;
+      color: green;
+    }
+    .preview {
+      margin-top: 10px;
+      font-size: 14px;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+  <h2>Upload Resume and Job Description</h2>
+
+  <form id="uploadForm">
+    <label>Resume: 
+      <input type="file" name="resume" required>
+    </label>
+    <label>Job Description: 
+      <input type="file" name="job_description" required>
+    </label>
+    <button type="submit">Upload</button>
+  </form>
+
+  <div class="result-box" id="resultBox" style="display:none;">
+    <p class="score">Match Score: <span id="matchScore"></span></p>
+    <div class="preview">
+      <p><strong>Resume Preview:</strong> <span id="resumePreview"></span></p>
+      <p><strong>Job Description Preview:</strong> <span id="jdPreview"></span></p>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById("uploadForm").onsubmit = async (e) => {
+      e.preventDefault();
+
+      const formData = new FormData(e.target);
+
+      const response = await fetch("http://127.0.0.1:5000/upload", {
+        method: "POST",
+        body: formData
+      });
+
+      const result = await response.json();
+
+      if(result.match_score){
+        document.getElementById("matchScore").textContent = result.match_score;
+        document.getElementById("resumePreview").textContent = result.resume_text;
+        document.getElementById("jdPreview").textContent = result.job_description_text;
+        document.getElementById("resultBox").style.display = "block";
+      } else {
+        alert("Error: " + (result.error || "Something went wrong!"));
+      }
+    }
+  </script>
+</body>
+</html>
