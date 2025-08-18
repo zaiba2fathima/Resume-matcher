@@ -45,7 +45,7 @@ scikit-learn (TF-IDF, cosine similarity)
 PyPDF2 (for PDF parsing)
 '''
 ## 📂 Project Structure
-'''
+
 Resume-matcher/
 │
 ├── backend/
