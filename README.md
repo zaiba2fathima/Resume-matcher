@@ -11,7 +11,7 @@ Receive feedback on missing keywords or improvements.
 
 
 ## 📌 Features
-'''
+
 
 Resume Upload – Upload resumes in text/PDF format.
 
@@ -22,9 +22,9 @@ Match Score – Calculates similarity score between resume and JD.
 Keyword Suggestions – Shows missing or weak keywords.
 
 Frontend + Backend – HTML/CSS/JS for UI, Flask (Python) for backend.
-'''
+
 ## 🛠️ Tech Stack
-'''
+     
 
 # Frontend:
 
@@ -43,7 +43,7 @@ Flask
 scikit-learn (TF-IDF, cosine similarity)
 
 PyPDF2 (for PDF parsing)
-'''
+
 ## 📂 Project Structure
 
 Resume-matcher/
@@ -59,10 +59,10 @@ Resume-matcher/
 │ └── style.css
 │
 └── README.md
-'''
+
 
 ## 🚀 How It Works
-'''
+
 
 1.User uploads resume and job description.
 
@@ -71,9 +71,9 @@ Resume-matcher/
 3.Generates a match percentage and highlights missing keywords.
 
 4.Results displayed in frontend.
-'''
+
 ## ⚙️ Installation & Setup
-'''
+ 
 
 1.Clone the repository
 git clone https://github.com/zaiba2fathima/Resume-matcher.git
@@ -89,4 +89,4 @@ Backend will run on http://127.0.0.1:5000/
 
 4.Frontend
 Open frontend/index.html in your browser.
-'''
+
