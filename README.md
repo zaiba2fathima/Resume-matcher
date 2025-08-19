@@ -1,5 +1,5 @@
 ## 📄 Resume Matcher
-'''
+
 
 A simple web-based Resume Matcher App that allows users to:
 
@@ -8,7 +8,7 @@ Upload their resume and a job description.
 Get a similarity score to see how well their resume matches the job role.
 
 Receive feedback on missing keywords or improvements.
-'''
+
 
 ## 📌 Features
 '''
