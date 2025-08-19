@@ -59,7 +59,7 @@ Resume-matcher/
 │ └── style.css
 │
 └── README.md
-'''
+
 ---
 
 ## 🚀 How It Works
