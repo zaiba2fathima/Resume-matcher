@@ -71,6 +71,15 @@
       font-size: 14px;
       color: #555;
     }
+    .tips {
+      margin-top: 15px;
+      font-size: 15px;
+      color: #222;
+    }
+    .tips ul {
+      margin: 8px 0 0;
+      padding-left: 20px;
+    }
   </style>
 </head>
 <body>
@@ -78,10 +87,10 @@
 
   <form id="uploadForm">
     <label>Resume: 
-      <input type="file" name="resume" required>
+      <input type="file" name="resume" id="resume" required>
     </label>
     <label>Job Description: 
-      <input type="file" name="job_description" required>
+      <input type="file" name="job_description" id="jd" required>
     </label>
     <button type="submit">Upload</button>
   </form>
@@ -91,6 +100,10 @@
     <div class="preview">
       <p><strong>Resume Preview:</strong> <span id="resumePreview"></span></p>
       <p><strong>Job Description Preview:</strong> <span id="jdPreview"></span></p>
+    </div>
+    <div class="tips" id="aiTipsBox" style="display:none;">
+      <h3>AI Resume Improvement Tips:</h3>
+      <ul id="aiTipsList"></ul>
     </div>
   </div>
 
@@ -112,6 +125,18 @@
         document.getElementById("resumePreview").textContent = result.resume_text;
         document.getElementById("jdPreview").textContent = result.job_description_text;
         document.getElementById("resultBox").style.display = "block";
+
+        // Show AI Tips if available
+        if(result.ai_tips && result.ai_tips.length > 0){
+          const tipsList = document.getElementById("aiTipsList");
+          tipsList.innerHTML = ""; // clear old tips
+          result.ai_tips.forEach(tip => {
+            const li = document.createElement("li");
+            li.textContent = tip;
+            tipsList.appendChild(li);
+          });
+          document.getElementById("aiTipsBox").style.display = "block";
+        }
       } else {
         alert("Error: " + (result.error || "Something went wrong!"));
       }
