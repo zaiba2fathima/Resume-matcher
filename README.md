@@ -44,17 +44,17 @@ Resume-matcher/
 ## 🚀 How It Works
 
 
-User uploads resume and job description
+User uploads Resume and Job Description.
 
-Backend processes text → applies TF-IDF + Cosine Similarity
+Backend extracts text from both files.
 
-Generates:
+Texts are compared using TF-IDF + Cosine Similarity.
 
-✅ Match Percentage
+A match score (0–100%) is generated.
 
-✅ List of Missing Keywords
+AI (Gemini) gives real-time tips to improve the resume.
 
-Displays results on web page
+Results (score + tips) are shown on the frontend.
 
 ## ⚙️ Installation & Setup
  
