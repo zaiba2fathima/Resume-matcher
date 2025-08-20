@@ -1,21 +1,18 @@
-## 📄 Resume Matcher
+## 📄 Resume Match Maker with AI Tips
 
-
-An AI-powered tool that helps job seekers match their resumes with job descriptions by calculating a match score and suggesting missing keywords/skills.
+An AI-powered resume matcher where users can upload their Resume and Job Description. The system calculates a match score and then uses Google Gemini AI to generate real-time resume improvement tips
 
 
 ## 📌 Features
 
 
-✅ Upload resume (PDF) and job description (text)
+Upload Resume and Job Description (PDF/DOCX).
 
-✅ Uses TF-IDF + Cosine Similarity to calculate similarity
+Extracts text and calculates similarity score.
 
-✅ Highlights missing keywords from job description
+Uses Gemini AI to provide practical resume tips based on the uploaded documents.
 
-✅ Provides a match percentage
-
-✅ Simple web interface with Flask backend + HTML/CSS frontend
+Clean frontend with result preview.
 
 ## 🛠️ Tech Stack
      
@@ -26,7 +23,7 @@ Libraries: scikit-learn (TF-IDF, cosine similarity), PyPDF2 (PDF parsing)
 
 Frontend: HTML, CSS
 
-Other: Virtual Environment (venv)
+AI Integration: Google Gemini(google-genai SDK)
 
 
 ## 📂 Project Structure
@@ -73,19 +70,33 @@ venv\Scripts\activate
 3.Install dependencies:
 pip install -r requirements.txt
 
-4.Run the app
-python backend/app.py
+4.Add Gemini API Key
+GEMINI_API_KEY=your_api_key_here
 
-5.Open in browser:
+5.Run the app
+python backend/app.py
+the app will start at 
 http://127.0.0.1:5000/
 
+## 📊 Example Output
+
+Match Score: 72%
+AI Resume Tips:
+{
+  "tips": [
+    "Add more keywords related to project management found in the JD.",
+    "Highlight measurable achievements in previous roles.",
+    "Include technical skills such as Python, SQL, and cloud tools.",
+    "Reorder experience section to prioritize recent relevant work."
+  ]
+}
+
 ## 🚀 Future Improvements
+Add authentication (user accounts).
 
-Integrate GPT-based keyword suggestions
+Store past resume uploads & tips history.
 
-Improve UI/UX with React
+Support multiple job descriptions for one resume.
 
-Add support for multiple file formats (DOCX, TXT)
-
-Deploy on Render/Heroku
+Deploy on Render/Heroku/Vercel.
 
