@@ -3,6 +3,15 @@ from flask_cors import CORS
 import os
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
+from google import genai
+from dotenv import load_dotenv
+
+load_dotenv()
+
+GOOGLE_API_KEY=os.getenv("GOOGLE_API_KEY")
+
+
+gemini_client = genai.Client(api_key=GOOGLE_API_KEY)
 
 app = Flask(__name__)
 CORS(app)
@@ -39,6 +48,7 @@ def calculate_similarity(resume_text, jd_text):
     return round(score * 100, 2)  # percentage
 
 
+
 # -------- Upload Route ----------
 @app.route("/upload", methods=["POST"])
 def upload_file():
@@ -61,15 +71,45 @@ def upload_file():
     # Similarity score
     score = calculate_similarity(resume_text, jd_text)
 
+    # ---------- AI TIPS ----------
+    prompt = f"""
+    You are a resume coach.
+    Resume: {resume_text[:1500]}
+    Job Description: {jd_text[:1500]}
+    Current Match Score: {score}%
+
+    Please give 3-5 **specific and practical tips** to improve this resume
+    so it matches the job description better.
+    Return output as JSON only:
+    {{
+      "tips": ["...", "...", "..."]
+    }}
+    """
+
+    try:
+        response = gemini_client.models.generate_content(
+            model="gemini-2.5-flash",
+            contents=prompt,
+            config={"response_mime_type": "application/json"}
+        )
+
+        # Ensure we actually parse the text output
+        import json
+        response_text = response.text if hasattr(response, "text") else str(response)
+        ai_tips = json.loads(response_text).get("tips", [])
+
+    except Exception as e:
+        ai_tips = [f"AI tip generation failed: {str(e)}"]
+
     return jsonify({
         "message": "Files uploaded and analyzed successfully!",
         "resume_file": resume.filename,
         "job_description_file": jd.filename,
         "resume_text": resume_text[:300],   # preview
         "job_description_text": jd_text[:300],
-        "match_score": f"{score}%"
+        "match_score": f"{score}%",
+        "ai_tips": ai_tips
     })
-
 
 if __name__ == "__main__":
     app.run(port=5000, debug=True)
