@@ -1,4 +1,4 @@
-## 📄 Resume Match Maker with AI Tips
+## 📄 Smart Resume Analyzer
 
 An AI-powered resume matcher where users can upload their Resume and Job Description. The system calculates a match score and then uses Google Gemini AI to generate real-time resume improvement tips
 
