@@ -34,6 +34,7 @@ Resume-matcher/
 │── frontend/
 │    ├── index.html
 │    └── style.css
+|    └── script.js
 │── uploads/                
 │── requirements.txt
 │── README.md
