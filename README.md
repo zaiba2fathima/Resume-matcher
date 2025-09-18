@@ -21,7 +21,7 @@ Backend: Python, Flask
 
 Libraries: scikit-learn (TF-IDF, cosine similarity), PyPDF2 (PDF parsing)
 
-Frontend: HTML, CSS
+Frontend: HTML, CSS, JavaScript
 
 AI Integration: Google Gemini(google-genai SDK)
 
