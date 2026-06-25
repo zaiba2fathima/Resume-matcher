@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Smart Resume Analyzer</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+  <div class="container">
+    <h2>Smart Resume Analyzer</h2>
+    <p>Find out how well your resume matches a job description and get instant improvement tips.</p>
+
+    <!-- Upload Form -->
+    <form id="uploadForm">
+      <div class="file-input-wrapper">
+        <label for="resume">Upload Resume</label>
+        <div class="custom-file-upload">
+          <span id="resumeInfo">No file chosen</span>
+          <i class="fas fa-upload upload-icon"></i>
+          <input type="file" name="resume" id="resume" required>
+        </div>
+      </div>
+
+      <div class="file-input-wrapper">
+        <label for="jd">Upload Job Description</label>
+        <div class="custom-file-upload">
+          <span id="jdInfo">No file chosen</span>
+          <i class="fas fa-upload upload-icon"></i>
+          <input type="file" name="job_description" id="jd" required>
+        </div>
+      </div>
+
+      <button type="submit">Get My Score</button>
+    </form>
+  </div>
+
+  <!-- Loading Overlay -->
+  <div id="loadingOverlay">
+    <div class="spinner"></div>
+    <p>Analyzing your resume...</p>
+  </div>
+
+  <!-- Result Modal -->
+  <div id="resultModal" class="modal">
+    <div class="modal-content">
+      <span class="close-btn" onclick="closeModal()">&times;</span>
+      
+      <h2>Match Score: <span id="matchScore"></span>%</h2>
+      <h3 id="scoreLabel"></h3>
+      <div class="score-label">
+        <p></p>
+      </div>
+
+      <div class="preview">
+        <h3>Resume Preview:</h3>
+        <p id="resumePreview"></p>
+        <h3>Job Description Preview:</h3>
+        <p id="jdPreview"></p>
+      </div>
+
+      <div id="aiTipsSection">
+        <h3>AI Resume Improvement Tips:</h3>
+        <div id="tipsGrid"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
